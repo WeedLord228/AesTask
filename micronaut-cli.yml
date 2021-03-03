@@ -1,0 +1,6 @@
+applicationType: cli
+defaultPackage: ru.y
+testFramework: junit
+sourceLanguage: groovy
+buildTool: gradle
+features: [annotation-api, app-name, gradle, groovy, junit, logback, picocli, picocli-groovy-application, picocli-junit, readme, shade, yaml]
