@@ -38,13 +38,13 @@ class AesTaskCommand implements Runnable {
         if (prepare) {
         }
 
-        if (prepare) {
+        if (encode) {
         }
 
-        if (prepare) {
+        if (decode) {
         }
 
-        if (prepare) {
+        if (translate) {
         }
     }
 }

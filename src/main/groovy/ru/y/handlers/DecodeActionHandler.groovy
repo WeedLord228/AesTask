@@ -1,8 +1,8 @@
 package ru.y.handlers
 
-class DecodeActionHandle implements ActionHandler {
+class DecodeActionHandler implements ActionHandler {
     @Override
-    def handleAction() {
+    def handleAction(Object action) {
         return null
     }
 }
