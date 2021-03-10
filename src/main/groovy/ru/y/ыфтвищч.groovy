@@ -1,3 +1,7 @@
+import ru.y.encryption.Aes256Class
+
+import javax.crypto.Cipher
+
 def byte[] readFileLineByLine(String filePath) {
     File file = new File(filePath)
     def noOfLines = 0;
@@ -41,15 +45,25 @@ def completeFile(File inputFile, File outputFile) {
 
 Byte[] ADDITIVE_BLOCK = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-Collection translationMap = (-128..127).collect{
-    it.ad
+
+
+Collection translationMap = (-128..127).collectMany{
+    def result = [it as Byte]
+    result.addAll(ADDITIVE_BLOCK)
+    result
 }
 
-File inputFile = new File("F:\\Projects\\AesTask\\src\\main\\resources\\sample.jpg")
-File outputFile = new File("F:\\Projects\\AesTask\\src\\main\\resources\\example.jpg")
+Aes256Class aes256 = new Aes256Class()
+
+File inputFile = new File("/home/azajtsev/Projects/AesTask/src/main/resources/sample")
+File outputFile = new File("/home/azajtsev/Projects/AesTask/src/main/resources/example")
 
 completeFile(inputFile, outputFile)
 println(outputFile.bytes)
+println(translationMap.size())
+println(aes256.makeAes(translationMap as byte[], Cipher.ENCRYPT_MODE).length)
+
+
 
 //println(getBytesFromFile("F:\\Projects\\AesTask\\src\\main\\resources\\sample.jpg"))
 
